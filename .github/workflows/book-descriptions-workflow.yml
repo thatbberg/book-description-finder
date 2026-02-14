@@ -2,8 +2,8 @@ name: Update Book Descriptions
 
 on:
   schedule:
-    # Runs every 6 hours at :00 minutes past the hour
-    - cron: '0 */6 * * *'
+    # Runs daily at midnight PT (8:00 AM UTC)
+    - cron: '0 8 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

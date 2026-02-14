@@ -575,8 +575,12 @@ async function sendSlackNotification(successBooks, failedBooks, runTime) {
   };
 
   try {
-    await httpsRequest(options, payload);
-    console.log('Slack notification sent');
+    const slackResponse = await httpsRequest(options, payload);
+    if (slackResponse === 'ok') {
+      console.log('Slack notification sent');
+    } else {
+      console.log('Slack response:', JSON.stringify(slackResponse));
+    }
   } catch (error) {
     console.log('Failed to send Slack notification:', error.message);
   }
